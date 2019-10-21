@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Sloupcová transpozice</title>
+<link rel="stylesheet" href="css.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+<script>
+
+function getimput() {
+    var imput = document.getElementById("imputbox").value;
+    var leng = imput.length;
+	imput = imput.toLowerCase();
+	var output = "";
+	var zbytek = leng % 5;
+	console.log(zbytek);
+	if(zbytek == 0){}
+	else {
+		var i = 0;
+		for(i = 0;i < (4-zbytek)-1;i++){
+			imput = imput.split('');
+			imput[leng+i] = "a";
+			imput = imput.join('');
+		}
+	zbytek = 0;
+	}
+	console.log(imput);
+	if(zbytek == 0){
+		var r = leng / 5;
+		var i =  0;
+		console.log("ano");	
+		for(i = 0;i < 5;i++){
+			console.log(i);
+			var x = 0;
+			for(x = 0;x < r;x++){
+				var s = (0 + (5 * x))+i;
+				var char = imput.charAt(s)
+				output = output.split('');
+				output[x+(5*i)] = char;
+				output = output.join('');
+				console.log(output);	
+			}		
+		}
+	
+	}
+	
+	
+	
+	var text = document.getElementById("outputbox").value = output;
+}
+
+</script>
+<div class="f">
+<a href="web.html" class="s">zpět</a>
+</div>
+<textarea id="imputbox" ></textarea>
+
+<input type="button" value="Převést" onclick="getimput()" />
+
+<textarea id="outputbox" ></textarea>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>ROT13</title>
+<link rel="stylesheet" href="css.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+<script>
+
+function getimput() {
+    var imput = document.getElementById("imputbox").value;
+    var leng = imput.length;
+	imput = imput.toLowerCase();
+	var i = 0;
+	var output = "";
+	for (i = 0; i < leng; i++) {
+		var y = imput.charCodeAt(i);
+		if(y < "110") y = y + 13;
+		else y = y - 13;
+		var char = String.fromCharCode(y);
+		output = output.split('');
+		output[i] = char;
+		output = output.join('');
+	}
+	var text = document.getElementById("outputbox").value = output;
+}
+
+</script>
+<div class="f">
+<a href="web.html" class="s">zpět</a>
+</div>
+<textarea id="imputbox" ></textarea>
+
+<input type="button" value="Převést" onclick="getimput()" />
+
+<textarea id="outputbox" ></textarea>
+</body>
+</html>
